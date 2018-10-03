@@ -17,11 +17,11 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker build -t aeghobor/react-test -f ./client/Dockerfile.dev ./client
 
-  script:
-    - docker run aeghobor/react-test npm test -- --coverage
+script:
+  - docker run aeghobor/react-test npm test -- --coverage
 
-  deploy:
-    provider: script
-    script: bash ./deploy.sh
+deploy:
+  provider: script
+  script: bash ./deploy.sh
   on:
     branch: master
