@@ -1,6 +1,7 @@
 docker build -t aeghobor/multidocker-client:latest -t aeghobor/multidocker-client:$SHA -f ./client/Dockerfile ./client
 docker build -t aeghobor/multidocker-server:latest -t aeghobor/multidocker-server:$SHA -f ./server/Dockerfile ./server
 docker build -t aeghobor/multidocker-worker:latest -t aeghobor/multidocker-worker:$SHA -f ./worker/Dockerfile ./worker
+
 docker push aeghobor/multidocker-client:latest
 docker push aeghobor/multidocker-server:latest
 docker push aeghobor/multidocker-worker:latest

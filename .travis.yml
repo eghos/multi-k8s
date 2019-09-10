@@ -11,14 +11,14 @@ before_install:
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
-  - gcloud config set project multi-k8s-218215
-  - gcloud config set compute/zone europe-west2-a
+  - gcloud config set project data-rider-252221
+  - gcloud config set compute/zone us-central1-a
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker build -t aeghobor/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run aeghobor/react-test npm test -- --coverage
+  - docker run -e CI=true aeghobor/docker-react npm run test
 
 deploy:
   provider: script
