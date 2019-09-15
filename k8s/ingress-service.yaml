@@ -14,7 +14,7 @@ spec:
         - www.biografrica.com
       secretName: biografrica-com
   rules:
-    - host: biografrica-com
+    - host: biografrica.com
       http:
         paths:
           - path: /
